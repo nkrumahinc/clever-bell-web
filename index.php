@@ -25,7 +25,7 @@ Route::add(
 );
 
 Route::add('/schedule/view/([0-9]*)', function ($index) {
-    View::scheduleRead($index);
+    View::readSchedule($index);
 }, 'get');
 
 Route::add(
