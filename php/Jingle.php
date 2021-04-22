@@ -17,6 +17,12 @@ class Jingle
         return $jingles;
     }
 
+    public static function delete($id)
+    {
+        $jingles = self::getAll();
+        unlink(self::$path . $jingles[$id]);
+    }
+
 
     public static function upload()
     {
