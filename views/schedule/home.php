@@ -38,8 +38,8 @@
             $schedules = Csv::readAllSchedules();
 
             echo "
-        <table class=\"w-100\">
-            <tbody>
+        <table class=\"table w-100 table-hover\">
+            <thead>
                 <tr>
                     <th>
                         Description
@@ -54,6 +54,7 @@
                         Sound
                     </th>
                 </tr>
+            </thead>
     ";
             $index = 0;
             foreach ($schedules as $schedule) {
@@ -63,14 +64,13 @@
                 <td>$schedule[1]</td>
                 <td>$schedule[2]</td>
                 <td>$schedule[3]</td>
-                
 
             </tr>
         ";
                 $index++;
             }
             echo "
-        </tbody>
+        </thead>
         </table>
     ";
 
