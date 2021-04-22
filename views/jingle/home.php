@@ -91,30 +91,6 @@
 
         </div>
 
-
-        <!-- Delete Modal -->
-        <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="deleteModalLongTitle">Are You Sure?</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete this jingle?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary modaldismiss" data-dismiss="modal">No</button>
-                        <a class="btn btn-danger" href="/jingle/delete/<?php echo $id ?>">Delete</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
