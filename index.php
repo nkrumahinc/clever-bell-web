@@ -76,7 +76,7 @@ Route::add('/schedule', function () {
 
 // jingle
 Route::add('/jingle', function () {
-    echo 'list jingles';
+    View::jingleHome();
 }, 'get');
 
 Route::add(

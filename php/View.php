@@ -4,8 +4,19 @@ class View
 {
     public static function home()
     {
-        include('views/home.php');
+        self::scheduleHome();
     }
+
+    public static function jingleHome()
+    {
+        include('views/jingle/home.php');
+    }
+
+    public static function scheduleHome()
+    {
+        include('views/schedule/home.php');
+    }
+
     public static function scheduleUpdate($index)
     {
         $schedule = Csv::getSchedule($index);
