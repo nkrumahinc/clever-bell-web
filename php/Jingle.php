@@ -26,7 +26,6 @@ class Jingle
 
     public static function upload()
     {
-        echo json_encode($_FILES);
         $audiofile = $_FILES["jingle"];
         $filesize = $audiofile["size"];
         if ($filesize < 10485760) {

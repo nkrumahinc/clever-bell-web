@@ -88,7 +88,7 @@ Route::add(
     '/jingle',
     function () {
         Jingle::upload();
-        echo 'Jingle uploaded successfully<br/><br/><a href="/"><- Back</a>';
+        View::jingleHome();
     },
     'post'
 );
