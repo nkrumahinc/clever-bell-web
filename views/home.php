@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="row m-3">
-          <div class="col-md-4">
+            <div class="col-md-4">
                 <h3>Sounds</h3>
                 <ul>
                     <?php
@@ -67,20 +67,17 @@
                     <th>
                         Sound
                     </th>
-                    <th>
-                        Action
-                    </th>
                 </tr>
     ";
                 $index = 0;
                 foreach ($schedules as $schedule) {
                     echo "
-            <tr>
+            <tr class='clickable-row p-1' data-href='/schedule/view/$index'>
                 <td>$schedule[0]</td>
                 <td>$schedule[1]</td>
                 <td>$schedule[2]</td>
                 <td>$schedule[3]</td>
-                <td><span><a href=\"/schedule/view/$index\">View</a></span> <span> <a href=\"/schedule/update/$index\">Edit</a></span> <span><a href=\"/schedule/duplicate/$index\">Duplicate</a></span> <span><a href=\"/schedule/delete/$index\">Delete</a></span></td>
+                
 
             </tr>
         ";
@@ -101,6 +98,7 @@
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>
