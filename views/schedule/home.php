@@ -31,7 +31,6 @@
 
             <h3>Schedules</h3>
             <div class="my-3">
-
                 <p><a href="/schedule/create" class="btn btn-primary">New</a></p>
             </div>
             <?php
