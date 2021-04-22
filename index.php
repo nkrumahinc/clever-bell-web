@@ -61,7 +61,7 @@ Route::add(
     function ($index) {
         # delete
         Schedule::delete($index);
-        echo 'Schedule deleted successfully<br/><br/><a href="/"><- Back</a>';
+        View::home();
     },
     'get'
 );
