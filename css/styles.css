@@ -6,3 +6,10 @@ textarea {
 .banner {
   background-color: lightblue;
 }
+
+tr:nth-child(even) {
+  background-color: aliceblue;
+}
+
+.clickable-row {
+}
