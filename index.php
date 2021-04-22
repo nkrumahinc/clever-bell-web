@@ -19,7 +19,7 @@ Route::add(
     '/schedule/create',
     function () {
         Schedule::add();
-        echo 'Schedule added successfully<br/><br/><a href="/"><- Back</a>';
+        View::scheduleHome();
     },
     'post'
 );
@@ -69,7 +69,7 @@ Route::add(
 // Post route example
 Route::add('/schedule', function () {
     Schedule::add();
-    echo 'Schedule added successfully<br/><br/><a href="/"><- Back</a>';
+    View::scheduleHome();
 }, 'post');
 
 

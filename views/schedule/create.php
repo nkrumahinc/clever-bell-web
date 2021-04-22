@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label>Time</label>
-                            <input type="text" name="time" class="form-control">
+                            <input type="text" name="time" class="form-control" placeholder="23:59" pattern="[0-2]?[0-9]:[0-5][0-9]">
                         </div>
                         <div class="form-group">
                             <label>Days</label>
