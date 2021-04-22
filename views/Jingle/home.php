@@ -53,16 +53,16 @@
                 } else {
 
                     echo " 
-                        <table class=\"w-100 table\">
-                            <tbody>
+                        <table class=\"w-100 table table-hover\">
+                            <thead>
                                 <tr>
                                     <th>Name</th>
                                     <th>Play</th>
                                     <th>Actions</th>
-                                </tr>";
+                                </tr></thead><tbody>";
                     $id = 0;
                     foreach ($jingles as $jingle) {
-                        echo "<tr>
+                        echo "<tr class='clickable-row p-1' data-href='/jingle/view/$id'>
                             <td>
                                 " . $jingle . "
                             </td>
@@ -73,7 +73,9 @@
                                 </audio>
                             </td>
                             <td>
-                                <span><a href=\"/jingle/delete/$id\" class=\"btn btn-danger\">Delete</a></span>
+                                <button type=\"button\" class=\"btn\">
+                                    More
+                                </button>
                             </td>
                         </tr>";
                         $id++;
@@ -87,6 +89,28 @@
                 ?>
             </div>
 
+        </div>
+
+
+        <!-- Delete Modal -->
+        <div class="modal fade" id="deleteModalCenter" tabindex="-1" role="dialog" aria-labelledby="deleteModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLongTitle">Are You Sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete this jingle?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary modaldismiss" data-dismiss="modal">No</button>
+                        <a class="btn btn-danger" href="/jingle/delete/<?php echo $id ?>">Delete</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

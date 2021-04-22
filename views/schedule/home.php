@@ -53,6 +53,7 @@
                     <th>
                         Sound
                     </th>
+                    <th></th>
                 </tr>
             </thead>
     ";
@@ -64,6 +65,7 @@
                 <td>$schedule[1]</td>
                 <td>$schedule[2]</td>
                 <td>$schedule[3]</td>
+                <td><button type=\"button\" class=\"btn\">More</button></td>
 
             </tr>
         ";

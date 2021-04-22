@@ -84,6 +84,11 @@ Route::add('/jingle/delete/([0-9]*)', function ($id) {
     View::jingleHome();
 });
 
+Route::add('/jingle/view/([0-9]*)', function ($id) {
+    Jingle::get($id);
+    View::jingleRead($id);
+});
+
 Route::add(
     '/jingle',
     function () {
@@ -92,9 +97,5 @@ Route::add(
     },
     'post'
 );
-
-Route::add('/foo/([0-9]*)/([0-9]*)', function ($var1, $var2) {
-    echo 'foo ' . $var1 . ' ' . $var2;
-});
 
 Route::run('/');

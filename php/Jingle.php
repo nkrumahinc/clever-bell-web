@@ -17,6 +17,12 @@ class Jingle
         return $jingles;
     }
 
+    public static function get($id)
+    {
+        $jingles = self::getAll();
+        return $jingles[$id];
+    }
+
     public static function delete($id)
     {
         $jingles = self::getAll();

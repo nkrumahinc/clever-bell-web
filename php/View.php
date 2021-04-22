@@ -34,8 +34,9 @@ class View
         include('views/schedule/create.php');
     }
 
-    public static function jingleRead()
+    public static function jingleRead($id)
     {
+        $jingle = Jingle::get($id);
         include('views/jingle/read.php');
     }
 }
