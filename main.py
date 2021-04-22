@@ -9,14 +9,14 @@ from pygame import error as sounderror
 import csv
 
 
-csv_path = "/var/www/cleverbell/timetable.csv"
-tunes_path = "/var/www/cleverbell/jingles/"
+csv_path = "timetable.csv"
+tunes_path = "jingles/"
+
 
 def initialize():
     # get current working directory
     path = os.getcwd()
     #tunes_path = path + "\\alarm_tunes"
-
 
 
 def target():
