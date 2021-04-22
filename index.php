@@ -79,6 +79,11 @@ Route::add('/jingle', function () {
     View::jingleHome();
 }, 'get');
 
+Route::add('/jingle/delete/([0-9]*)', function ($id) {
+    Jingle::delete($id);
+    View::jingleHome();
+});
+
 Route::add(
     '/jingle',
     function () {
