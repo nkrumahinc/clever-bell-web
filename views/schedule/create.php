@@ -19,6 +19,22 @@
                     <p>Please edit the input values and submit to create the schedule.</p>
                     <form action="/schedule/create" method="post">
                         <div class="form-group">
+                            <label>Jingle</label>
+                            <select name="jingle" id="jingle" class="form-control">
+                                <option value="">choose a jingle</option>
+                                <?php
+                                $jingles = Jingle::getAll();
+                                $i = 0;
+                                $selected = "selected = \"selected\"";
+                                foreach ($jingles as $jingle) {
+                                    echo "<option value=\"$jingle\">$jingle</option>";
+                                    $i++;
+                                }
+                                ?>
+                            </select>
+                            <a href="/jingle">Upload New Jingle</a>
+                        </div>
+                        <div class="form-group">
                             <label>Description</label>
                             <input type="text" name="description" class="form-control">
                         </div>
@@ -41,21 +57,7 @@
                                 <option value="Weekends">Weekends</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label>Jingle</label>
-                            <select name="jingle" id="jingle" class="form-control">
-                                <option value="">choose a jingle</option>
-                                <?php
-                                $jingles = Jingle::getAll();
-                                $i = 0;
-                                $selected = "selected = \"selected\"";
-                                foreach ($jingles as $jingle) {
-                                    echo "<option value=\"$jingle\">$jingle</option>";
-                                    $i++;
-                                }
-                                ?>
-                            </select>
-                        </div>
+
                         <input type="submit" name="Submit" value="Submit" class="btn btn-primary">
                         <a href="/" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
