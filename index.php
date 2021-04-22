@@ -51,7 +51,7 @@ Route::add(
     '/schedule/update/([0-9]*)',
     function ($index) {
         Schedule::edit($index);
-        echo 'Schedule editted successfully<br/><br/><a href="/"><- Back</a>';
+        View::scheduleHome();
     },
     'post'
 );
