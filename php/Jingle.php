@@ -2,18 +2,23 @@
 
 class Jingle
 {
-    private static $path = "jingles/";
+
+    private static function jinglesdir(){
+	    return getcwd()."/jingles/";
+}
 
     public static function getAll()
     {
         $jingles = [];
 
-        $files = scandir(self::$path);
+        $files = scandir(self::jinglesdir());
+	if($files){
         foreach ($files as $key => $f) {
             if ($f != "." && $f != "..") {
                 array_push($jingles, $f);
             }
         }
+	}
         return $jingles;
     }
 
@@ -26,7 +31,7 @@ class Jingle
     public static function delete($id)
     {
         $jingles = self::getAll();
-        unlink(self::$path . $jingles[$id]);
+        unlink(self::jinglesdir() . $jingles[$id]);
     }
 
 
@@ -34,13 +39,13 @@ class Jingle
     {
         $audiofile = $_FILES["jingle"];
         $filesize = $audiofile["size"];
-        if ($filesize < 10485760) {
-            $status = move_uploaded_file($audiofile["tmp_name"], self::$path . $audiofile["name"]);
+//        if ($filesize < 8388608) {
+            $status = move_uploaded_file($audiofile["tmp_name"], self::jinglesdir() . $audiofile["name"]);
             if (!$status) {
                 echo "upload error";
             }
-        } else {
-            echo "file too big";
-        }
+//        } else {
+//            echo "file too big";
+//        }
     }
 }
