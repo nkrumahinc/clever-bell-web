@@ -44,7 +44,7 @@
                                 ?></select>
                         </div>
                         <input type="hidden" name="index" value="<?php echo $index; ?>" />
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Save Changes">
                         <a href="/" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
