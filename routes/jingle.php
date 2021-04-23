@@ -1,5 +1,7 @@
 <?php
 
+const JINGLEPAGE = "Location: /jingle";
+
 // jingle
 Route::add('/jingle', function () {
     View::jingleHome();
@@ -7,7 +9,7 @@ Route::add('/jingle', function () {
 
 Route::add('/jingle/delete/([0-9]*)', function ($id) {
     Jingle::delete($id);
-    View::jingleHome();
+    header(JINGLEPAGE);
 });
 
 Route::add('/jingle/view/([0-9]*)', function ($id) {
@@ -19,7 +21,7 @@ Route::add(
     '/jingle',
     function () {
         Jingle::upload();
-        View::jingleHome();
+        header(JINGLEPAGE);
     },
     'post'
 );

@@ -13,7 +13,4 @@ Route::add('/', function () {
     View::home();
 });
 
-
-
-
 Route::run('/');

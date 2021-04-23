@@ -1,5 +1,12 @@
 <?php
 
+const SCHEDULEPAGE = "Location: /";
+
+
+Route::add('/schedule', function () {
+    View::scheduleHome();
+});
+
 Route::add('/schedule/create', function () {
     View::scheduleCreate();
 }, 'get');
@@ -8,7 +15,8 @@ Route::add(
     '/schedule/create',
     function () {
         Schedule::add();
-        View::scheduleHome();
+        echo "success";
+        header(SCHEDULEPAGE);
     },
     'post'
 );
@@ -31,7 +39,7 @@ Route::add(
     function ($index) {
         #edit
         Schedule::duplicate($index);
-        View::home();
+        header(SCHEDULEPAGE);
     },
     'get'
 );
@@ -40,7 +48,7 @@ Route::add(
     '/schedule/update/([0-9]*)',
     function ($index) {
         Schedule::edit($index);
-        View::scheduleHome();
+        header(SCHEDULEPAGE);
     },
     'post'
 );
@@ -50,13 +58,7 @@ Route::add(
     function ($index) {
         # delete
         Schedule::delete($index);
-        View::home();
+        header(SCHEDULEPAGE);
     },
     'get'
 );
-
-// Post route example
-Route::add('/schedule', function () {
-    Schedule::add();
-    View::scheduleHome();
-}, 'post');
