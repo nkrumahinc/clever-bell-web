@@ -7,7 +7,7 @@ import pyttsx3
 from pygame import mixer
 from pygame import error as sounderror
 import csv
-import codecs
+import json
 
 csv_path = "/var/www/cleverbell/timetable.csv"
 tunes_path = "/var/www/cleverbell/jingles/"
@@ -19,22 +19,35 @@ def initialize():
     #tunes_path = path + "\\alarm_tunes"
 
 
-def target():
+def is_today(row):
+    dayofweek = datetime.now().strftime("%A")
+    dateoftoday = datetime.now().strftime("%d-%m-%Y")
+    return (row[2].capitalize() == "Everyday" or row[2].capitalize() == dayofweek or row[2] == dateoftoday or row[2] == '')
+
+
+def is_time(row):
+    localtime = datetime.now().strftime("%H:%M")
+    return (localtime == row[1].strip())
+
+
+def is_now(row):
+    # check if today is among
+    if is_today(row) and is_time(row):
+        return True
+    return False
+
+
+def mainloop():
     initialize()
 
     while True:
-        localtime = datetime.now().strftime("%H:%M")
-        dayofweek = datetime.now().strftime("%A")
-        dateoftoday = datetime.now().strftime("%d-%m-%Y")
         timetable = readtimetable()
 
         for index in range(1, len(timetable)):
+
             row = timetable[index]
-            if len(row) > 0:
-                # check if today is among
-                if(row[2].capitalize() == "Everyday" or row[2].capitalize() == dayofweek or row[2] == dateoftoday or row[2] == ''):
-                    if(localtime == row[1].strip()):
-                        soundalarm(row[0], row[1], row[2], row[3])
+            if is_now(row):
+                soundalarm(row[0], row[1], row[2], row[3])
 
         time.sleep(5)
 
@@ -60,11 +73,21 @@ def soundalarm(description, alarmtime, days, sound):
 def readtimetable():
     timetable = []
     with open(csv_path, 'rt') as csvfile:
-        reader = csv.reader((line.replace('\0','') for line in csvfile), delimiter=',', quotechar='|')
+        reader = csv.reader((line.replace('\0', '')
+                             for line in csvfile), delimiter=',', quotechar='|')
         for row in reader:
             timetable.append(row)
 
     return timetable
+
+
+def readJson():
+    f = open("timetable.json")
+    timetable = []
+    rows = json.load(f)
+
+    for row in rows:
+        print(row)
 
 
 def main():
@@ -72,7 +95,7 @@ def main():
     engine = pyttsx3.init()
     engine.say("Clever Bell Initiated")
     engine.runAndWait()
-    mainthread = threading.Thread(target=target)
+    mainthread = threading.Thread(target=mainloop)
     mainthread.start()
 
 
