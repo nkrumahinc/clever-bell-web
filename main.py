@@ -7,10 +7,10 @@ import pyttsx3
 from pygame import mixer
 from pygame import error as sounderror
 import csv
+import codecs
 
-
-csv_path = "timetable.csv"
-tunes_path = "jingles/"
+csv_path = "/var/www/cleverbell/timetable.csv"
+tunes_path = "/var/www/cleverbell/jingles/"
 
 
 def initialize():
@@ -30,10 +30,11 @@ def target():
 
         for index in range(1, len(timetable)):
             row = timetable[index]
-            # check if today is among
-            if(row[2].capitalize() == "Everyday" or row[2].capitalize() == dayofweek or row[2] == dateoftoday or row[2] == ''):
-                if(localtime == row[1].strip()):
-                    soundalarm(*row)
+            if len(row) > 0:
+                # check if today is among
+                if(row[2].capitalize() == "Everyday" or row[2].capitalize() == dayofweek or row[2] == dateoftoday or row[2] == ''):
+                    if(localtime == row[1].strip()):
+                        soundalarm(row[0], row[1], row[2], row[3])
 
         time.sleep(5)
 
@@ -59,7 +60,7 @@ def soundalarm(description, alarmtime, days, sound):
 def readtimetable():
     timetable = []
     with open(csv_path, 'rt') as csvfile:
-        reader = csv.reader(csvfile, delimiter=',', quotechar='|')
+        reader = csv.reader((line.replace('\0','') for line in csvfile), delimiter=',', quotechar='|')
         for row in reader:
             timetable.append(row)
 
