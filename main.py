@@ -9,8 +9,12 @@ from pygame import error as sounderror
 import csv
 import json
 
-csv_path = "/var/www/cleverbell/timetable.csv"
-tunes_path = "/var/www/cleverbell/jingles/"
+# csv_path = "/var/www/cleverbell/timetable.csv"
+# tunes_path = "/var/www/cleverbell/jingles/"
+
+csv_path = "./timetable.csv"
+json_path = "./timetable.json"
+tunes_path = "./jingles/"
 
 
 def initialize():
@@ -19,21 +23,24 @@ def initialize():
     #tunes_path = path + "\\alarm_tunes"
 
 
-def is_today(row):
+def is_today(days):
     dayofweek = datetime.now().strftime("%A")
-    dateoftoday = datetime.now().strftime("%d-%m-%Y")
-    return (row[2].capitalize() == "Everyday" or row[2].capitalize() == dayofweek or row[2] == dateoftoday or row[2] == '')
+    return (days == "Everyday" or days == dayofweek or days or days == '')
 
 
-def is_time(row):
+def is_time(time):
     localtime = datetime.now().strftime("%H:%M")
-    return (localtime == row[1].strip())
+    return (localtime == time)
 
 
 def is_now(row):
     # check if today is among
-    if is_today(row) and is_time(row):
+    days = row[2].capitalize()
+    time = row[1].strip()
+
+    if is_today(days) and is_time(time):
         return True
+
     return False
 
 
@@ -43,11 +50,15 @@ def mainloop():
     while True:
         timetable = readtimetable()
 
-        for index in range(1, len(timetable)):
+        for index in range(len(timetable)):
 
             row = timetable[index]
+
+            print(row[0], row[1], row[2], row[3])
+
             if is_now(row):
-                soundalarm(row[0], row[1], row[2], row[3])
+                soundalarm(row[0], row[1],
+                           row[2], row[3])
 
         time.sleep(5)
 
@@ -79,15 +90,6 @@ def readtimetable():
             timetable.append(row)
 
     return timetable
-
-
-def readJson():
-    f = open("timetable.json")
-    timetable = []
-    rows = json.load(f)
-
-    for row in rows:
-        print(row)
 
 
 def main():
