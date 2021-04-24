@@ -35,7 +35,7 @@
             </div>
             <?php
 
-            $schedules = Csv::readAllSchedules();
+            $schedules = Schedule::getAll();
 
             echo "
         <table class=\"table w-100 table-hover\">
@@ -51,7 +51,7 @@
                         Days
                     </th>
                     <th>
-                        Sound
+                        Jingle
                     </th>
                     <th></th>
                 </tr>
@@ -61,10 +61,10 @@
             foreach ($schedules as $schedule) {
                 echo "
             <tr class='clickable-row p-1' data-href='/schedule/view/$index'>
-                <td>$schedule[0]</td>
-                <td>$schedule[1]</td>
-                <td>$schedule[2]</td>
-                <td>$schedule[3]</td>
+                <td>" . $schedule["description"] . "</td>
+                <td>" . $schedule["time"] . "</td>
+                <td>" . $schedule["days"] . "</td>
+                <td>" . $schedule["jingle"] . "</td>
                 <td><button type=\"button\" class=\"btn\">More</button></td>
 
             </tr>

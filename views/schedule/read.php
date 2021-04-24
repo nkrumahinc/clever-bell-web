@@ -18,19 +18,19 @@
                     <h1 class="mt-5 mb-3">View Schedule</h1>
                     <div class="form-group">
                         <label>Description</label>
-                        <p><b><?php echo $schedule[0]; ?></b></p>
+                        <p><b><?php echo $schedule["description"]; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Time</label>
-                        <p><b><?php echo $schedule[1]; ?></b></p>
+                        <p><b><?php echo $schedule["time"]; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Days</label>
-                        <p><b><?php echo $schedule[2]; ?></b></p>
+                        <p><b><?php echo $schedule["days"]; ?></b></p>
                     </div>
                     <div class="form-group">
                         <label>Jingle</label>
-                        <p><b><?php echo $schedule[3]; ?></b></p>
+                        <p><b><?php echo $schedule["jingle"]; ?></b></p>
                     </div>
                     <p>
                         <span>

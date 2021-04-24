@@ -53,12 +53,9 @@ def mainloop():
         for index in range(len(timetable)):
 
             row = timetable[index]
-
-            print(row[0], row[1], row[2], row[3])
-
             if is_now(row):
-                soundalarm(row[0], row[1],
-                           row[2], row[3])
+                soundalarm(row["description"], row["time"],
+                           row["days"], row["jingle"])
 
         time.sleep(5)
 
@@ -82,12 +79,8 @@ def soundalarm(description, alarmtime, days, sound):
 
 
 def readtimetable():
-    timetable = []
-    with open(csv_path, 'rt') as csvfile:
-        reader = csv.reader((line.replace('\0', '')
-                             for line in csvfile), delimiter=',', quotechar='|')
-        for row in reader:
-            timetable.append(row)
+    f = open("timetable.json")
+    timetable = json.load(f)
 
     return timetable
 
