@@ -25,7 +25,30 @@ def initialize():
 
 def is_today(days):
     dayofweek = datetime.now().strftime("%A")
-    return (days == "Everyday" or days == dayofweek or days or days == '')
+
+    if(days == "Everyday"):
+        return True
+
+    if(days == "Weekday" and (
+        dayofweek == "Monday" or
+        dayofweek == "Tuesday" or
+        dayofweek == "Wednesday" or
+        dayofweek == "Thursday" or
+        dayofweek == "Friday"
+    )
+    ):
+        return True
+
+    if(days == "Weekend" and (
+        dayofweek == "Saturday" or
+        dayofweek == "Sunday"
+    )):
+        return True
+
+    if(days == dayofweek):
+        return True
+
+    return False
 
 
 def is_time(time):
