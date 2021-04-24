@@ -39,7 +39,7 @@ def is_today(days):
     ):
         return True
 
-    if(days == "Weekend" and (
+    if(days == "Weekends" and (
         dayofweek == "Saturday" or
         dayofweek == "Sunday"
     )):
