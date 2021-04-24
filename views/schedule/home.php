@@ -57,8 +57,7 @@
                 </tr>
             </thead>
     ";
-            $index = 0;
-            foreach ($schedules as $schedule) {
+            foreach ($schedules as $index=>$schedule) {
                 echo "
             <tr class='clickable-row p-1' data-href='/schedule/view/$index'>
                 <td>" . $schedule["description"] . "</td>
@@ -69,7 +68,6 @@
 
             </tr>
         ";
-                $index++;
             }
             echo "
         </thead>

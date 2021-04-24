@@ -13,11 +13,11 @@ json_path = "/var/www/cleverbell/timetable.json"
 tunes_path = "/var/www/cleverbell/jingles/"
 
 
-
 def initialize():
-    # get current working directory
-    path = os.getcwd()
-
+    engine = pyttsx3.init()
+    engine.say("Clever Bell Initiated")
+    engine.runAndWait()
+    mixer.init()   
 
 def is_today(days):
     dayofweek = datetime.now().strftime("%A")
@@ -65,14 +65,17 @@ def is_now(row):
 
 
 def mainloop():
-    initialize()
 
     while True:
         timetable = readtimetable()
 
-        for index in range(len(timetable)):
+        for index in timetable:
+            
+            if isinstance(index, str) or isinstance(index, int):
+                row = timetable[index]
+            elif isinstance(index, dict):
+                row = index
 
-            row = timetable[index]
             if is_now(row):
                 soundalarm(row["description"], row["time"],
                            row["days"], row["jingle"])
@@ -85,12 +88,12 @@ def soundalarm(description, alarmtime, days, sound):
     engine.say("The time is " + alarmtime)
     engine.say("Time for " + description)
     engine.runAndWait()
-
+    
     try:
-        mixer.init()
-        mixer.music.load(tunes_path + sound.strip())
-        mixer.music.play()
-        time.sleep(60)
+       mixer.music.load(tunes_path + sound.strip())
+       mixer.music.play()
+       while mixer.music.get_busy():
+           time.sleep(1)
 
     except sounderror as errormsg:
         print(errormsg)
@@ -107,9 +110,6 @@ def readtimetable():
 
 def main():
     initialize()
-    engine = pyttsx3.init()
-    engine.say("Clever Bell Initiated")
-    engine.runAndWait()
     mainthread = threading.Thread(target=mainloop)
     mainthread.start()
 
