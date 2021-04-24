@@ -68,7 +68,6 @@
 
             </tr>
         ";
-                $index++;
             }
             echo "
         </thead>
