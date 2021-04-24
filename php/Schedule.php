@@ -48,4 +48,17 @@ class Schedule
     {
         return Json::get($index);
     }
+
+    public static $days = array(
+        "Everyday",
+        "Weekdays",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+        "Weekends"
+    );
 }
