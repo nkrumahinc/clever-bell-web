@@ -20,15 +20,15 @@
                     <form action="/schedule/update/<?php echo $index ?>" method="post">
                         <div class="form-group">
                             <label>Description</label>
-                            <input type="text" name="description" class="form-control" value="<?php echo $schedule[0] ?>">
+                            <input type="text" name="description" class="form-control" value="<?php echo $schedule["description"] ?>">
                         </div>
                         <div class="form-group">
                             <label>Time</label>
-                            <input type="text" name="time" class="form-control" value="<?php echo $schedule[1]; ?>">
+                            <input type="text" name="time" class="form-control" value="<?php echo $schedule["time"]; ?>">
                         </div>
                         <div class="form-group">
                             <label>Days</label>
-                            <input type="text" name="days" class="form-control" value="<?php echo $schedule[2] ?>">
+                            <input type="text" name="days" class="form-control" value="<?php echo $schedule["days"] ?>">
                         </div>
                         <div class="form-group">
                             <label>Jingle</label>
@@ -38,7 +38,7 @@
                                 $i = 0;
                                 $selected = "selected = \"selected\"";
                                 foreach ($jingles as $jingle) {
-                                    echo "<option value=\"$jingle\"" . (($jingles[$i] == $schedule[3]) ? $selected : '') . ">$jingle</option>";
+                                    echo "<option value=\"$jingle\"" . (($jingles[$i] == $schedule["jingle"]) ? $selected : '') . ">$jingle</option>";
                                     $i++;
                                 }
                                 ?></select>
