@@ -1,9 +1,9 @@
 <?php
 
+include_once("Files.php");
 class Json
 {
-    private $path = "timetable.json";
-    private $file_error = "error opening file";
+
 
     // private static function schedule_array($schedule)
     // {
@@ -11,35 +11,44 @@ class Json
 
     // }
 
-    public static function addSchedule($schedule)
+
+    public static function add($schedule)
     {
-        $schedules = self::readFile();
+        $schedules = Files::readFile();
         array_push($schedules, $schedule);
-        self::writeFile($schedules);
+        Files::writeFile($schedules);
     }
 
-    public static function addSchedules($schedules)
+    public static function edit($index, $schedule)
     {
-        self::writeFile($schedules);
+        $schedules = Files::readFile();
+        $schedules[$index] = $schedule;
+        Files::writeFile($schedules);
     }
 
-    public static function getSchedules()
+    public static function delete($index)
     {
-        return self::readFile();
+        $schedules = Files::readFile();
+        unset($schedules[$index]);
+        Files::writeFile($schedules);
     }
 
-    private static function writeFile($schedules)
+    public static function getAll()
     {
-        $input =  json_encode($schedules);
-        $handle = fopen(self::$path, "w") or die(self::$file_error);
-        fwrite($handle, $input);
-        fclose($handle);
+        return Files::readFile();
     }
 
-    private static function readFile()
+    public static function get($index)
     {
-        $output = file_get_contents(self::$path);
-        $schedules = json_decode($output);
-        return $schedules;
+        $schedules = Files::readFile();
+        return $schedules[$index];
+    }
+
+    public static function duplicate($index)
+    {
+        $schedules = Files::readFile();
+        $schedule = $schedules[$index];
+        array_push($schedules, $schedule);
+        Files::writeFile($schedules);
     }
 }

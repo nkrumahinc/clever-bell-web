@@ -15,7 +15,6 @@ Route::add(
     '/schedule/create',
     function () {
         Schedule::add();
-        echo "success";
         header(SCHEDULEPAGE);
     },
     'post'

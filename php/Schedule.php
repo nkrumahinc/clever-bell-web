@@ -2,14 +2,26 @@
 
 class Schedule
 {
+    private static function schedule_array()
+    {
+        return array(
+            "description" => $_POST["description"],
+            "time" => $_POST["time"],
+            "days" => $_POST["days"],
+            "jingle" => $_POST["jingle"]
+        );
+    }
+
     public static function add()
     {
-        Csv::addSchedule();
+        $schedule = self::schedule_array();
+        Json::add($schedule);
     }
 
     public static function edit($index)
     {
-        Csv::editSchedule($index);
+        $schedule = self::schedule_array();
+        Json::edit($index, $schedule);
     }
 
     public static function create()
@@ -19,11 +31,21 @@ class Schedule
 
     public static function delete($index)
     {
-        Csv::deleteSchedule($index);
+        Json::delete($index);
     }
 
     public static function duplicate($index)
     {
-        Csv::duplicateSchedule($index);
+        Json::duplicate($index);
+    }
+
+    public static function getAll()
+    {
+        return Json::getAll();
+    }
+
+    public static function get($index)
+    {
+        return Json::get($index);
     }
 }
