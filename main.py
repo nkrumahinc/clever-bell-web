@@ -58,8 +58,9 @@ def is_time(time):
 
 def is_now(row):
     # check if today is among
-    days = row[2].capitalize()
-    time = row[1].strip()
+
+    days = row["days"].capitalize()
+    time = row["time"].strip()
 
     if is_today(days) and is_time(time):
         return True
