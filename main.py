@@ -9,18 +9,14 @@ from pygame import error as sounderror
 import csv
 import json
 
-# csv_path = "/var/www/cleverbell/timetable.csv"
-# tunes_path = "/var/www/cleverbell/jingles/"
+json_path = "/var/www/cleverbell/timetable.json"
+tunes_path = "/var/www/cleverbell/jingles/"
 
-csv_path = "./timetable.csv"
-json_path = "./timetable.json"
-tunes_path = "./jingles/"
 
 
 def initialize():
     # get current working directory
     path = os.getcwd()
-    #tunes_path = path + "\\alarm_tunes"
 
 
 def is_today(days):
@@ -103,7 +99,7 @@ def soundalarm(description, alarmtime, days, sound):
 
 
 def readtimetable():
-    f = open("timetable.json")
+    f = open(json_path)
     timetable = json.load(f)
 
     return timetable
