@@ -4,14 +4,6 @@ include_once("Files.php");
 class Json
 {
 
-
-    // private static function schedule_array($schedule)
-    // {
-    //     return array($schedule["description"], $schedule["time"], $schedule["days"], $schedule["jingle"]);
-
-    // }
-
-
     public static function add($schedule)
     {
         $schedules = Files::readFile();
