@@ -19,13 +19,13 @@ class View
 
     public static function scheduleUpdate($index)
     {
-        $schedule = Csv::getSchedule($index);
+        $schedule = Json::get($index);
         include('views/schedule/update.php');
     }
 
     public static function readSchedule($index)
     {
-        $schedule = Csv::getSchedule($index);
+        $schedule = Json::get($index);
         include('views/schedule/read.php');
     }
 
