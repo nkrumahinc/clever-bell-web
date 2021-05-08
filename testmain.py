@@ -13,11 +13,12 @@ import sys
 json_path = "/var/www/cleverbell/timetable.json"
 tunes_path = "/var/www/cleverbell/jingles/"
 
-log_path = "/var/www/cleverbell/log.log"
-logfile = open(log_path, "w+")
-sys.stdout = logfile
+log_path = "/var/www/cleverbell/testlog.log"
+#logfile = open(log_path, "w+")
+#sys.stdout = logfile
 
 def initialize():
+    print(" f: initialize" )
     engine = pyttsx3.init()
     engine.say("Clever Bell Initiated")
     print("Clever Bell Initiated")
@@ -25,6 +26,7 @@ def initialize():
     mixer.init()   
 
 def is_today(days):
+    print(" f: is_today" )
     dayofweek = datetime.now().strftime("%A")
 
     if(days == "Everyday"):
@@ -53,11 +55,15 @@ def is_today(days):
 
 
 def is_time(time):
+    print(" f: is_time" )
     localtime = datetime.now().strftime("%H:%M")
+    print(localtime)
+    print(time)
     return (localtime == time)
 
 
 def is_now(row):
+    print("fun: is now" )
     days = row["days"].capitalize()
     time = row["time"].strip()
     print(' check isnow' )
@@ -69,6 +75,7 @@ def is_now(row):
 
 
 def mainloop():
+    print(" f:mainloop" )
 
     while True:
         timetable = readtimetable()
@@ -82,13 +89,22 @@ def mainloop():
 
             if is_now(row):
                 print(" time is now" )
-                soundalarm(row["description"], row["time"],
-                           row["days"], row["jingle"])
+                #soundalarm(row["description"], row["time"],
+                #           row["days"], row["jingle"])
 
+                soundalarm("this is a test" , datetime.now().strftime("%H:%M"),
+                           "Everyday" , "a.mp3" )
         time.sleep(5)
 
+def testloop():
+    print(" f:testloop" )
+    row = {"description": "this is a test", "time":datetime.now().strftime("%H:%M"), "days" :"Everyday", "jingle":"a.mp3"}
+    while True:
+        if is_now(row):
+            soundalarm(row["description"], row["time"], row["days"], row["jingle"])
 
 def soundalarm(description, alarmtime, days, sound):
+    print(" f:soundalarm" )
     engine = pyttsx3.init()
     engine.say("The time is " + alarmtime)
     engine.say("Time for " + description)
@@ -111,6 +127,7 @@ def soundalarm(description, alarmtime, days, sound):
 
 
 def readtimetable():
+    print(" f:readtimetable" )
     f = open(json_path)
     print(" read json file" )
     timetable = json.load(f)
@@ -119,8 +136,10 @@ def readtimetable():
 
 
 def main():
+    print(" f:main" )
     initialize()
-    mainthread = threading.Thread(target=mainloop)
+    mainthread = threading.Thread(target=testloop)
+    #mainthread = threading.Thread(target=mainloop)
     mainthread.start()
 
 
