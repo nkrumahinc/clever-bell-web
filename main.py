@@ -2,6 +2,8 @@ from py.checker import is_now
 from py.reader import readtimetable
 from py.ringer import soundalarm
 
+from py.say import say
+
 import threading
 import time
 
