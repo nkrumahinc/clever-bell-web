@@ -2,7 +2,6 @@ import os
 import threading
 import time
 from datetime import datetime
-from playsound import playsound
 import pyttsx3
 from pygame import mixer
 from pygame import error as sounderror
