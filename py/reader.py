@@ -2,10 +2,7 @@
 
 import json
 import configparser
-
-
-lepath = "./"
-
+from json.decoder import JSONDecodeError
 
 def parsepaths(json_path, tunes_path, log_path):
     config = configparser.ConfigParser()
@@ -15,16 +12,17 @@ def parsepaths(json_path, tunes_path, log_path):
     tunes_path = lepath + tunes_path
     log_path = lepath + log_path
 
-json_path = "timetable.json"
-tunes_path = "jingles/"
-log_path = "log.log"
-
-logfile = open(log_path, "w+")
-
+json_path = "./timetable.json"
 
 def readtimetable():
-    f = open(json_path)
-    print(" read json file" )
-    timetable = json.load(f)
+    timetable = {}
+
+    f = open(json_path, "w+")
+    print("reading json file" )
+
+    try:
+        timetable = json.load(f)
+    except JSONDecodeError:
+        json.dump(timetable, f)
 
     return timetable
