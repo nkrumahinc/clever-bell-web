@@ -1,13 +1,16 @@
 from py.checker import is_now
-from py.reader import readtimetable
+from py.reader import readtimetable, initjson
 from py.ringer import soundalarm
 
 from py.say import say
+from py.play import initjingles
 
 import threading
 import time
 
 def initialize():
+    initjson()
+    initjingles()
     say("cleverbell initiated")
     print("Clever Bell Initiated")
 
