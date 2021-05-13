@@ -5,12 +5,18 @@ class Jingle
 
     private static function jinglesdir(){
 	    return getcwd()."/jingles/";
-}
+    }
+
+    private static function createdir(){
+        if(!file_exists(self::jinglesdir())){
+            mkdir(self::jinglesdir(), 0777, true);
+        }
+    }
 
     public static function getAll()
     {
         $jingles = [];
-
+        self::createdir();
         $files = scandir(self::jinglesdir());
 	if($files){
         foreach ($files as $key => $f) {
@@ -37,6 +43,7 @@ class Jingle
 
     public static function upload()
     {
+        self::createdir();
         $audiofile = $_FILES["jingle"];
         $filesize = $audiofile["size"];
 //        if ($filesize < 8388608) {
