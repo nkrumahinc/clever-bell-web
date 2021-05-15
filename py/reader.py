@@ -11,8 +11,6 @@ def initjson():
     # if file does not exit, create it.
     file = open(json_path, 'w')
     # if file is empty, init it.
-    if os.stat(json_path).st_size == 0:
-        json.dump({},file)
     file.close()
     
 
@@ -20,7 +18,11 @@ def readtimetable():
     timetable = {}
 
     f = open(json_path, "r")
-    timetable = json.load(f)
+
+    try:
+        timetable = json.load(f)
+    except JSONDecodeError:
+        timetable = {}
 
     return timetable
 
