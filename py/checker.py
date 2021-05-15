@@ -1,4 +1,7 @@
 from datetime import datetime
+import re
+
+TESTMODE = True
 
 def is_today(days):
     dayofweek = datetime.now().strftime("%A")
@@ -29,17 +32,24 @@ def is_today(days):
 
 
 def is_time(time):
-    localtime = datetime.now().strftime("%H:%M")
+    # check if 24 hour format
+
+    if re.match(r'(1[012]|[1-9]):[0-5][0-9](\s)?(?i)(am|pm)', time):
+        localtime = datetime.now().strftime("%")
+    
     return (localtime == time)
 
 
 def is_now(row):
+    isnow = False
     days = row["days"].capitalize()
     time = row["time"].strip()
     print(' check isnow' )
     if is_today(days) and is_time(time):
         print(" time matches" )
-        return True
+        isnow = True
 
-    return False
+    else: 
+        isnow = False
 
+    return TESTMODE or isnow
