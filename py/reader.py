@@ -7,13 +7,6 @@ from json.decoder import JSONDecodeError
 
 json_path = "./timetable.json"
 
-def initjson():
-    # if file does not exit, create it.
-    file = open(json_path, 'w')
-    # if file is empty, init it.
-    file.close()
-    
-
 def readtimetable():
     timetable = {}
 
