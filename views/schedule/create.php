@@ -40,7 +40,13 @@
                         </div>
                         <div class="form-group">
                             <label>Time</label>
-                            <input type="text" name="time" class="form-control" placeholder="23:59" pattern="[0-2]?[0-9]:[0-5][0-9]">
+                            <input 
+                                type="text" 
+                                name="time" 
+                                class="form-control" 
+                                placeholder="HH:MM AM"
+                                pattern="(1[012]|[1-9]):[0-5][0-9](\s)?(?i)(am|pm)"
+                            >
                         </div>
                         <div class="form-group">
                             <label>Days</label>
@@ -60,6 +66,10 @@
             </div>
         </div>
     </div>
+
+    <div class="timepicker"></div>
+
+    
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
