@@ -24,8 +24,15 @@
                             <input type="text" name="description" class="form-control" value="<?php echo $schedule["description"] ?>">
                         </div>
                         <div class="form-group">
-                            <label>Time</label>
-                            <input type="text" name="time" class="form-control" value="<?php echo $schedule["time"]; ?>">
+                            <label>Time HH:MM am/pm</label>
+                            <input 
+                                type="text" 
+                                name="time" 
+                                class="form-control" 
+                                placeholder="HH:MM AM"
+                                pattern="^(1[012]|[1-9]):[0-5][0-9](\s)?(am|pm|AM|PM)$"
+                                value="<?php echo $schedule["time"]; ?>"
+                            >
                         </div>
                         <div class="form-group">
                             <label>Days</label>
