@@ -1,7 +1,7 @@
 from datetime import datetime
 import re
 
-TESTMODE = True
+TESTMODE = False
 
 def is_today(days):
     dayofweek = datetime.now().strftime("%A")
@@ -45,7 +45,6 @@ def is_time(time):
 
 
 def is_now(row):
-    isnow = False
     days = row["days"].capitalize()
     time = row["time"].strip()
     # print(' check isnow' )

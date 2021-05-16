@@ -5,8 +5,8 @@ def soundalarm(row):
 
     description = row["description"]
     alarmtime = row["time"]
-    days = row["days"]
     jingle = row["jingle"]
+    recording = row["recording"]
 
     say("the time is " + alarmtime)
     say("time for " + description)
@@ -14,4 +14,6 @@ def soundalarm(row):
 
     print(" playing sound" )
     play(jingle)
-    print(" timer sleep 60 seconds" )
+    
+    print("playing recording")
+    play(recording)
