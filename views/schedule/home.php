@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="/jingle">Jingles</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recording">Recordings</a>
+            </li>
         </ul>
     </nav>
     <div class="container">
@@ -53,6 +56,9 @@
                     <th>
                         Jingle
                     </th>
+                    <th>
+                        Recording
+                    </th>
                     <th></th>
                 </tr>
             </thead>
@@ -64,6 +70,7 @@
                 <td>" . $schedule["time"] . "</td>
                 <td>" . $schedule["days"] . "</td>
                 <td>" . $schedule["jingle"] . "</td>
+                <td>" . $schedule["recording"] . "</td>
                 <td><button type=\"button\" class=\"btn\">More</button></td>
 
             </tr>

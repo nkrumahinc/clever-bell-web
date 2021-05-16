@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a class="nav-link active" href="/jingle">Jingles</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/recording">Recordings</a>
+            </li>
         </ul>
     </nav>
     <div class="container">
