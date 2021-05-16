@@ -32,6 +32,10 @@
                         <label>Jingle</label>
                         <p><b><?php echo $schedule["jingle"]; ?></b></p>
                     </div>
+                    <div class="form-group">
+                        <label>Recording</label>
+                        <p><b><?php echo $schedule["recording"]; ?></b></p>
+                    </div>
                     <p>
                         <span>
                             <a class="btn btn-primary" href="/schedule/update/<?php echo $index ?>">Edit</a>

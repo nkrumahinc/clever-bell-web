@@ -8,7 +8,8 @@ class Schedule
             "description" => $_POST["description"],
             "time" => $_POST["time"],
             "days" => $_POST["days"],
-            "jingle" => $_POST["jingle"]
+            "jingle" => $_POST["jingle"],
+            "recording" => $_POST["recording"]
         );
     }
 

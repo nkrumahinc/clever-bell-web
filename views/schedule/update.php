@@ -56,6 +56,19 @@
                                 }
                                 ?></select>
                         </div>
+                        <div class="form-group">
+                            <label>Recording</label>
+                            <select name="recording" id="recording" class="form-control">
+                                <?php
+                                $recordings = Recording::getAll();
+                                $i = 0;
+
+                                foreach ($recordings as $recording) {
+                                    echo "<option value=\"$recording\"" . (($recordings[$i] == $schedule["recording"]) ? $selected : '') . ">$recording</option>";
+                                    $i++;
+                                }
+                                ?></select>
+                        </div>
                         <input type="hidden" name="index" value="<?php echo $index; ?>" />
                         <input type="submit" class="btn btn-primary" value="Save Changes">
                         <a href="/" class="btn btn-secondary ml-2">Cancel</a>

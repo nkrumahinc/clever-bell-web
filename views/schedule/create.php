@@ -35,6 +35,22 @@
                             <a href="/jingle">Upload New Jingle</a>
                         </div>
                         <div class="form-group">
+                            <label>Recording</label>
+                            <select name="recording" id="recording" class="form-control">
+                                <option value="">choose a recording</option>
+                                <?php
+                                $recordings = Recording::getAll();
+                                $i = 0;
+                                $selected = "selected = \"selected\"";
+                                foreach ($recordings as $recording) {
+                                    echo "<option value=\"$recording\">$recording</option>";
+                                    $i++;
+                                }
+                                ?>
+                            </select>
+                            <a href="/jingle">Upload New Recording</a>
+                        </div>
+                        <div class="form-group">
                             <label>Description</label>
                             <input type="text" name="description" class="form-control">
                         </div>
