@@ -20,7 +20,7 @@ def mainloop():
 
         for row in timetable:
             if is_now(row):
-                print(" time is now" )
+                # print(" time is now" )
                 soundalarm(row)
 
         time.sleep(5)
