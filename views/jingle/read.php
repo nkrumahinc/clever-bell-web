@@ -29,7 +29,7 @@
                     </div>
 
                     <p>
-                        <button type="button" class="btn btn-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
+                        <button type="button" class="btn btn-outline-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
                             Delete
                         </button>
                     </p>

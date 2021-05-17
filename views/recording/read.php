@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>CleverBell Editor : View Jingle</title>
+    <title>CleverBell Editor : View Recording</title>
 </head>
 
 <body>
@@ -15,25 +15,25 @@
         <div class="container-fluid">
             <div class="row m-3">
                 <div class="col-md-12">
-                    <h1 class="mt-5 mb-3">View Jingle</h1>
+                    <h1 class="mt-5 mb-3">View Recording</h1>
                     <div class="form-group">
                         <label>Name</label>
-                        <p><b><?php echo $jingle; ?></b></p>
+                        <p><b><?php echo $recording; ?></b></p>
                     </div>
                     <div class="form-group">
                         <!-- <label>Play</label> -->
                         <p><audio controls>
-                                <source src="/jingles/<?php echo $jingle ?>">
+                                <source src="/recordings/<?php echo $recording ?>">
                                 Your browser does not support the audio element.
                             </audio></p>
                     </div>
 
                     <p>
-                        <button type="button" class="btn btn-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
+                        <button type="button" class="btn btn-outline-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
                             Delete
                         </button>
                     </p>
-                    <p><a href="/jingle" class="btn btn-secondary">Back</a></p>
+                    <p><a href="/recording" class="btn btn-secondary">Back</a></p>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary modaldismiss" data-dismiss="modal">No</button>
-                    <a class="btn btn-danger" href="/jingle/delete/<?php echo $id ?>">Delete</a>
+                    <a class="btn btn-danger" href="/recording/delete/<?php echo $id ?>">Delete</a>
                 </div>
             </div>
         </div>

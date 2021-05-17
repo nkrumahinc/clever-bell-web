@@ -38,13 +38,12 @@
                     </div>
                     <p>
                         <span>
-                            <a class="btn btn-primary" href="/schedule/update/<?php echo $index ?>">Edit</a>
+                            <a class="btn btn-outline-primary" href="/schedule/update/<?php echo $index ?>">Edit</a>
                         </span>
-                        <span><a class="btn btn-primary" href="/schedule/duplicate/<?php echo $index ?>">Duplicate</a></span>
-                        <button type="button" class="btn btn-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
+                        <span><a class="btn btn-outline-primary" href="/schedule/duplicate/<?php echo $index ?>">Duplicate</a></span>
+                        <button type="button" class="btn btn-outline-danger modalbutton" data-toggle="modal" data-target="#deleteModalCenter">
                             Delete
                         </button>
-                        <!-- <span><a class="btn btn-danger" href="/schedule/delete/<?php echo $index ?>">Delete</a></span> -->
                     </p>
                     <p><a href="/" class="btn btn-secondary">Back</a></p>
                 </div>
