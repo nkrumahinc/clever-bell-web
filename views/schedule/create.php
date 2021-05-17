@@ -18,43 +18,54 @@
                     <h2 class="mt-5">Create Schedule</h2>
                     <p>Please edit the input values and submit to create the schedule.</p>
                     <form action="/schedule/create" method="post">
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Jingle</label>
-                            <select name="jingle" id="jingle" class="form-control">
-                                <option value="">choose a jingle</option>
-                                <?php
-                                $jingles = Jingle::getAll();
-                                $i = 0;
-                                $selected = "selected = \"selected\"";
-                                foreach ($jingles as $jingle) {
-                                    echo "<option value=\"$jingle\">$jingle</option>";
-                                    $i++;
-                                }
-                                ?>
-                            </select>
-                            <a href="/jingle">Upload New Jingle</a>
+                            <div class="row">
+                                <div class="col">
+                                    <select name="jingle" id="jingle" class="form-control">
+                                        <option value="">choose a jingle</option>
+                                        <?php
+                                        $jingles = Jingle::getAll();
+                                        $i = 0;
+                                        $selected = "selected = \"selected\"";
+                                        foreach ($jingles as $jingle) {
+                                            echo "<option value=\"$jingle\">$jingle</option>";
+                                            $i++;
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <a href="/jingle" class="btn btn-outline-primary">Upload New Jingle</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Recording</label>
-                            <select name="recording" id="recording" class="form-control">
-                                <option value="">choose a recording</option>
-                                <?php
-                                $recordings = Recording::getAll();
-                                $i = 0;
-                                $selected = "selected = \"selected\"";
-                                foreach ($recordings as $recording) {
-                                    echo "<option value=\"$recording\">$recording</option>";
-                                    $i++;
-                                }
-                                ?>
-                            </select>
-                            <a href="/jingle">Upload New Recording</a>
+                            <div class="row">
+                                <div class="col">
+                                    <select name="recording" id="recording" class="form-control">
+                                        <option value="">choose a recording</option>
+                                        <?php
+                                        $recordings = Recording::getAll();
+                                        $i = 0;
+                                        $selected = "selected = \"selected\"";
+                                        foreach ($recordings as $recording) {
+                                            echo "<option value=\"$recording\">$recording</option>";
+                                            $i++;
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <a href="/jingle" class="btn btn-outline-primary">Upload New Recording</a>
+                                </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Description</label>
                             <input type="text" name="description" class="form-control">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Time HH:MM am/pm</label>
                             <input 
                                 type="text" 
@@ -64,7 +75,7 @@
                                 pattern="^(1[012]|[1-9]):[0-5][0-9](\s)?(am|pm|AM|PM)$"
                             >
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Days</label>
                             <select name="days" id="days" class="form-control">
                                 <?php foreach (Schedule::$days as $day) {
