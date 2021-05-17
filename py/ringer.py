@@ -1,7 +1,7 @@
 from py.play import playJingle, playRecording
 from py.say import say
 
-def soundalarm(row):
+def soundalarm(row, p):
 
     description = row["description"]
     alarmtime = row["time"]
@@ -13,7 +13,7 @@ def soundalarm(row):
     print(alarmtime, description)  
 
     print(" playing sound" )
-    playJingle(jingle)
+    playJingle(jingle,p)
     
     print("playing recording")
-    playRecording(recording)
+    playRecording(recording,p)

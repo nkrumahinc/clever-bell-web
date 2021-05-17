@@ -8,6 +8,10 @@ from py.play import initjingles
 import threading
 import time
 
+import os
+
+p = os.path.dirname(os.path.realpath(__file__))
+
 def initialize():
     initjingles()
     say("cleverbell initiated")
@@ -16,12 +20,12 @@ def initialize():
 def mainloop():
 
     while True:
-        timetable = readtimetable()
+        timetable = readtimetable(p)
 
         for row in timetable:
             if is_now(row):
                 # print(" time is now" )
-                soundalarm(row)
+                soundalarm(row,p)
 
         time.sleep(5)
 

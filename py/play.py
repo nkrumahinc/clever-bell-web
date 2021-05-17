@@ -1,10 +1,4 @@
-from pygame import mixer
-
 from audioplayer import AudioPlayer
-
-import os
-
-mixer.init()
 
 def initjingles():
     # if jingles folder does not exist, create it
@@ -14,10 +8,10 @@ def play(filename):
     player = AudioPlayer(filename)
     player.play(loop=False,block=True)
 
-def playJingle(filename):
-    jingle = os.getcwd() + "/jingles/"+filename
+def playJingle(filename, p):
+    jingle = p + "/jingles/"+filename
     play(jingle)
 
-def playRecording(filename):
-    jingle = os.getcwd() + "/recordings/"+filename
+def playRecording(filename ,p):
+    jingle = p + "/recordings/"+filename
     play(jingle)
