@@ -19,6 +19,23 @@
                     <p>Please edit the input values and submit to create the schedule.</p>
                     <form action="/schedule/create" method="post">
                         <div class="form-group my-4">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control">
+                        </div>
+                        <div class="form-group my-4">
+                            <label>Time HH:MM am/pm</label>
+                            <input type="text" name="time" class="form-control" placeholder="HH:MM AM" pattern="^(1[012]|[1-9]):[0-5][0-9](\s)?(am|pm|AM|PM)$">
+                        </div>
+                        <div class="form-group my-4">
+                            <label>Days</label>
+                            <select name="days" id="days" class="form-control">
+                                <?php foreach (Schedule::$days as $day) {
+                                    echo "<option value=\"$day\">$day</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="form-group my-4">
                             <label>Jingle</label>
                             <div class="row">
                                 <div class="col">
@@ -60,40 +77,19 @@
                                 <div class="col">
                                     <a href="/jingle" class="btn btn-outline-primary">Upload New Recording</a>
                                 </div>
-                        </div>
-                        <div class="form-group my-4">
-                            <label>Description</label>
-                            <input type="text" name="description" class="form-control">
-                        </div>
-                        <div class="form-group my-4">
-                            <label>Time HH:MM am/pm</label>
-                            <input 
-                                type="text" 
-                                name="time" 
-                                class="form-control" 
-                                placeholder="HH:MM AM"
-                                pattern="^(1[012]|[1-9]):[0-5][0-9](\s)?(am|pm|AM|PM)$"
-                            >
-                        </div>
-                        <div class="form-group my-4">
-                            <label>Days</label>
-                            <select name="days" id="days" class="form-control">
-                                <?php foreach (Schedule::$days as $day) {
-                                    echo "<option value=\"$day\">$day</option>";
-                                }
-                                ?>
-                            </select>
+                            </div>
                         </div>
 
                         <input type="submit" name="Submit" value="Submit" class="btn btn-primary">
                         <a href="/" class="btn btn-secondary ml-2">Cancel</a>
+
                     </form>
 
                 </div>
             </div>
         </div>
     </div>
-    
+
     <script src="/js/jquery-3.6.0.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
