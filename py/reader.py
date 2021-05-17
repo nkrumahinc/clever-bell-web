@@ -5,7 +5,7 @@ import os
 import configparser
 from json.decoder import JSONDecodeError
 
-json_path = "./timetable.json"
+json_path = os.getcwd()+"/timetable.json"
 
 def readtimetable():
     timetable = {}
