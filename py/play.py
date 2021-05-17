@@ -2,8 +2,6 @@ from pygame import mixer
 
 from audioplayer import AudioPlayer
 
-import time
-from py.say import say
 import os
 
 mixer.init()
@@ -13,6 +11,13 @@ def initjingles():
     pass
 
 def play(filename):
-    jingle = os.getcwd() + "/jingles/"+filename
-    player = AudioPlayer(jingle)
+    player = AudioPlayer(filename)
     player.play(loop=False,block=True)
+
+def playJingle(filename):
+    jingle = os.getcwd() + "/jingles/"+filename
+    play(jingle)
+
+def playRecording(filename):
+    jingle = os.getcwd() + "/recordings/"+filename
+    play(jingle)
