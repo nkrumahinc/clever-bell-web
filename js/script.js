@@ -3,14 +3,13 @@ jQuery(document).ready(function($) {
         window.location = $(this).data("href");
     });
 
-    $(".modalbutton").click(function(){
+    $(".modalbutton").click(function() {
         $("#deleteModalCenter").modal("show");
     });
 
-    $(".modaldismiss").click(function(){
+    $(".modaldismiss").click(function() {
         $("#deleteModalCenter").modal("hide");
     });
 
 
 });
-

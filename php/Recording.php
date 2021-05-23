@@ -1,53 +1,53 @@
 <?php
 
-class Jingle
+class Recording
 {
 
-    private static function jinglesdir(){
-	    return getcwd()."/jingles/";
+    private static function recordingsdir(){
+	    return getcwd()."/recordings/";
     }
 
     private static function createdir(){
-        if(!file_exists(self::jinglesdir())){
-            mkdir(self::jinglesdir(), 0777, true);
+        if(!file_exists(self::recordingsdir())){
+            mkdir(self::recordingsdir(), 0777, true);
         }
     }
 
     public static function getAll()
     {
-        $jingles = [];
+        $recordings = [];
         self::createdir();
-        $files = scandir(self::jinglesdir());
+        $files = scandir(self::recordingsdir());
 	if($files){
         foreach ($files as $key => $f) {
             if ($f != "." && $f != "..") {
-                array_push($jingles, $f);
+                array_push($recordings, $f);
             }
         }
 	}
-        return $jingles;
+        return $recordings;
     }
 
     public static function get($id)
     {
-        $jingles = self::getAll();
-        return $jingles[$id];
+        $recordings = self::getAll();
+        return $recordings[$id];
     }
 
     public static function delete($id)
     {
-        $jingles = self::getAll();
-        unlink(self::jinglesdir() . $jingles[$id]);
+        $recordings = self::getAll();
+        unlink(self::recordingsdir() . $recordings[$id]);
     }
 
 
     public static function upload()
     {
         self::createdir();
-        $audiofile = $_FILES["jingle"];
+        $audiofile = $_FILES["recording"];
         $filesize = $audiofile["size"];
 //        if ($filesize < 8388608) {
-            $status = move_uploaded_file($audiofile["tmp_name"], self::jinglesdir() . $audiofile["name"]);
+            $status = move_uploaded_file($audiofile["tmp_name"], self::recordingsdir() . $audiofile["name"]);
             if (!$status) {
                 echo "upload error";
             }

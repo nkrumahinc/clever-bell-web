@@ -1,1 +1,16 @@
-{"3":{"description":"Covenant","time":"20:43","days":"Weekends","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3"},"4":{"description":"blow","time":"15:22","days":"Saturday","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3"}}
+[
+    {
+        "description": "life",
+        "time": "10:17pm",
+        "days": "Everyday",
+        "jingle": "file_example_MP3_700KB.mp3",
+        "recording": "file_example_WAV_1MG.wav"
+    },
+    {
+        "description": "The Old G",
+        "time": "10:17pm",
+        "days": "Everyday",
+        "jingle": "file_example_OOG_1MG.ogg",
+        "recording": "file_example_WAV_1MG.wav"
+    }
+]

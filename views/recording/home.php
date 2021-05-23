@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <title>CleverBell Editor: Jingles</title>
+    <title>CleverBell Editor: Recordings</title>
 </head>
 
 <body>
@@ -21,23 +21,23 @@
                 <a class="nav-link" href="/">Schedules</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="/jingle">Jingles</a>
+                <a class="nav-link" href="/jingle">Jingles</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/recording">Recordings</a>
+                <a class="nav-link active" href="/recording">Recordings</a>
             </li>
         </ul>
     </nav>
     <div class="container">
         <div class="row my-3 py-2">
-            <h3>Jingles</h3>
+            <h3>Recordings</h3>
         </div>
         <div class="row card m-3 p-3">
             <div class="col-md-8">
                 <h4>Upload</h4>
 
-                <form action="jingle" enctype="multipart/form-data" method="post">
-                    <input class="form-control" type="file" name="jingle" accept="audio/*">
+                <form action="recording" enctype="multipart/form-data" method="post">
+                    <input class="form-control" type="file" name="recording" accept="audio/*">
                     <p style="text-align: right;" class="m-1">
                         <input class="btn btn-primary" type="submit" name="Submit" value="Upload">
                     </p>
@@ -49,9 +49,9 @@
 
             <div class="col-md-8">
                 <?php
-                $jingles = Jingle::getAll();
+                $recordings = Recording::getAll();
 
-                if (sizeof($jingles) == 0) {
+                if (sizeof($recordings) == 0) {
                     echo "no sounds yet.";
                 } else {
 
@@ -64,14 +64,14 @@
                                     <th>Actions</th>
                                 </tr></thead><tbody>";
                     $id = 0;
-                    foreach ($jingles as $jingle) {
-                        echo "<tr class='clickable-row p-1' data-href='/jingle/view/$id'>
+                    foreach ($recordings as $recording) {
+                        echo "<tr class='clickable-row p-1' data-href='/recording/view/$id'>
                             <td>
-                                " . $jingle . "
+                                " . $recording . "
                             </td>
                             <td>
                                 <audio controls>
-                                    <source src=\"/jingles/$jingle\">
+                                    <source src=\"/recordings/$recording\">
                                         Your browser does not support the audio element.
                                 </audio>
                             </td>

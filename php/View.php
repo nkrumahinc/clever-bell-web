@@ -12,6 +12,11 @@ class View
         include('views/jingle/home.php');
     }
 
+    public static function recordingHome()
+    {
+        include('views/recording/home.php');
+    }
+
     public static function scheduleHome()
     {
         include('views/schedule/home.php');
@@ -38,5 +43,11 @@ class View
     {
         $jingle = Jingle::get($id);
         include('views/jingle/read.php');
+    }
+
+    public static function recordingRead($id)
+    {
+        $recording = Recording::get($id);
+        include('views/recording/read.php');
     }
 }

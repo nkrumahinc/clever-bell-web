@@ -1,3 +1,6 @@
-timetable.csv
 jingles/
+recordings/
+test.py
+py/__pycache__/
+log.log
 timetable.json

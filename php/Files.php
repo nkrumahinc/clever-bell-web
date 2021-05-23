@@ -16,6 +16,8 @@ class Files
     public static function readFile()
     {
         $output = file_get_contents(self::$path);
-        return json_decode($output, true);
+        $schedules = json_decode($output, true);
+        return empty($schedules)? array() : $schedules;
+        
     }
 }

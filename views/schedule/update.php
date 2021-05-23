@@ -15,19 +15,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="mt-5">Update Record</h2>
-                    <p>Please edit the input values and submit to update the employee record.</p>
+                    <h2 class="mt-5">Update Schedule</h2>
+                    <p>Please edit the input values and submit to update the schedule.</p>
                     <form action="/schedule/update/<?php echo $index ?>" method="post">
                         <?php $selected = "selected = \"selected\""; ?>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Description</label>
                             <input type="text" name="description" class="form-control" value="<?php echo $schedule["description"] ?>">
                         </div>
-                        <div class="form-group">
-                            <label>Time</label>
-                            <input type="text" name="time" class="form-control" value="<?php echo $schedule["time"]; ?>">
+                        <div class="form-group my-4">
+                            <label>Time HH:MM am/pm</label>
+                            <input type="text" name="time" class="form-control" placeholder="HH:MM AM" pattern="^(1[012]|[1-9]):[0-5][0-9](\s)?(am|pm|AM|PM)$" value="<?php echo $schedule["time"]; ?>">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Days</label>
                             <select name="days" id="days" class="form-control">
                                 <?php foreach (Schedule::$days as $day) {
@@ -36,18 +36,47 @@
                                 ?>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-4">
                             <label>Jingle</label>
-                            <select name="jingle" id="jingle" class="form-control">
-                                <?php
-                                $jingles = Jingle::getAll();
-                                $i = 0;
+                            <div class="row">
+                                <div class="col">
+                                    <select name="jingle" id="jingle" class="form-control">
+                                        <?php
+                                        $jingles = Jingle::getAll();
+                                        $i = 0;
 
-                                foreach ($jingles as $jingle) {
-                                    echo "<option value=\"$jingle\"" . (($jingles[$i] == $schedule["jingle"]) ? $selected : '') . ">$jingle</option>";
-                                    $i++;
-                                }
-                                ?></select>
+                                        foreach ($jingles as $jingle) {
+                                            echo "<option value=\"$jingle\"" . (($jingles[$i] == $schedule["jingle"]) ? $selected : '') . ">$jingle</option>";
+                                            $i++;
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <a href="/jingle" class="btn btn-outline-primary">Upload New Jingle</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group my-4">
+                            <label>Recording</label>
+                            <div class="row">
+                                <div class="col">
+                                    <select name="recording" id="recording" class="form-control">
+                                        <?php
+                                        $recordings = Recording::getAll();
+                                        $i = 0;
+
+                                        foreach ($recordings as $recording) {
+                                            echo "<option value=\"$recording\"" . (($recordings[$i] == $schedule["recording"]) ? $selected : '') . ">$recording</option>";
+                                            $i++;
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <a href="/recording" class="btn btn-outline-primary">Upload New Recording</a>
+                                </div>
+                            </div>
                         </div>
                         <input type="hidden" name="index" value="<?php echo $index; ?>" />
                         <input type="submit" class="btn btn-primary" value="Save Changes">
