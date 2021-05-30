@@ -1,4 +1,3 @@
-from audioplayer import AudioPlayer
 from pygame import mixer
 import time
 
@@ -11,11 +10,6 @@ def initjingles():
 
 
 def play(filename):
-    player = AudioPlayer(filename)
-    player.play(loop=False, block=True)
-
-
-def play_pygame(filename):
     mixer.music.load(filename)
     while(mixer.music.play()):
         time.sleep(1)
