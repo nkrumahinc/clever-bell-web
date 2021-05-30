@@ -68,11 +68,15 @@
             <tr class='clickable-row p-1' data-href='/schedule/view/$index'>
                 <td>" . $schedule["description"] . "</td>
                 <td>" . $schedule["time"] . "</td>
-                
-        </thead>
+                <td>" . $schedule["days"] . "</td>
+                <td>" . $schedule["jingle"] . "</td>
+                <td>" . $schedule["recording"] . "</td>
+            </tr>";
+            }
+            "</thead>
         </table>
     ";
-            }
+
 
             ?>
 
