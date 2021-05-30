@@ -75,7 +75,7 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <a href="/jingle" class="btn btn-outline-primary">Upload New Recording</a>
+                                    <a href="/recording" class="btn btn-outline-primary">Upload New Recording</a>
                                 </div>
                             </div>
                         </div>
