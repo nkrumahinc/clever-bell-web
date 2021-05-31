@@ -12,31 +12,56 @@ import os
 
 p = os.path.dirname(os.path.realpath(__file__))
 
+
 def initialize():
     initjingles()
     say("cleverbell initiated")
     print("Clever Bell Initiated")
 
+
 def mainloop():
+    print("thread started")
 
     while True:
+        print("..")
+
         timetable = readtimetable(p)
 
         for row in timetable:
-            if is_now(row):
-                # print(" time is now" )
-                soundalarm(row,p)
+            print(row.get('description'))
+            if is_now(row['days'], row['time']):
+                soundalarm(row, p)
+            else:
+                print("not this time")
 
         time.sleep(5)
 
+
+def printdict(d):
+    print(d.keys())
+
+
 def startloop():
     mainthread = threading.Thread(target=mainloop)
+    print("starting thread")
     mainthread.start()
 
+
+def testtimetable():
+    print("\n")
+    t = readtimetable(p)
+    for i in t:
+        print(i)
+        print(type(i))
+        print(i["description"])
+        print("\n")
+
+
 def main():
-    # say("friday night yes")
     initialize()
     startloop()
+    # testtimetable()
+
 
 if __name__ == "__main__":
     main()

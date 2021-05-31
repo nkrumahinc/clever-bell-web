@@ -15,11 +15,11 @@ def play(filename):
         time.sleep(1)
 
 
-def playJingle(filename, p):
+def play_jingle(filename, p):
     jingle = p + "/jingles/"+filename
     play(jingle)
 
 
-def playRecording(filename, p):
+def play_recording(filename, p):
     jingle = p + "/recordings/"+filename
     play(jingle)

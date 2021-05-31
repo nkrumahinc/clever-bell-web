@@ -1,7 +1,6 @@
 from datetime import datetime
 import re
 
-TESTMODE = False
 
 def is_today(days):
     dayofweek = datetime.now().strftime("%A")
@@ -31,25 +30,31 @@ def is_today(days):
     return False
 
 
-def is_time(time):
+def is_time(thetime):
     # check if 24 hour format
 
-    if re.match(r'^(1[012]|[1-9]):[0-5][0-9](\s)(am|pm|AM|PM)$', time):
+    if re.match(r'^(1[012]|[1-9]):[0-5][0-9](\s)(am|pm|AM|PM)$', thetime):
         localtime = datetime.now().strftime("%I:%M %p")
 
-    if re.match(r'^(1[012]|[1-9]):[0-5][0-9](am|pm|AM|PM)$', time):
+    if re.match(r'^(1[012]|[1-9]):[0-5][0-9](am|pm|AM|PM)$', thetime):
         localtime = datetime.now().strftime("%I:%M%p")
-    
 
-    return (localtime == time)
+    print("localtime " + localtime + "entry " + thetime)
+
+    return (localtime == thetime)
 
 
-def is_now(row):
-    days = row["days"].capitalize()
-    time = row["time"].strip()
-    # print(' check isnow' )
-    if is_today(days) and is_time(time):
-        # print(" time matches" )
-        return TESTMODE or True
+def is_now(days: str, thetime: str):
+    days = days.capitalize()
+    thetime = thetime.strip().upper()
+    print(' check isnow')
 
-    return TESTMODE or False
+    istoday = "today" if(is_today(days)) else "not today"
+
+    print(days + " " + istoday)
+
+    if is_today(days) and is_time(thetime):
+        print(" time matches")
+        return True
+
+    return False

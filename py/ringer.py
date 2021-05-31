@@ -1,5 +1,6 @@
-from py.play import playJingle, playRecording
+from py.play import play_jingle, play_recording
 from py.say import say
+
 
 def soundalarm(row, p):
 
@@ -10,10 +11,10 @@ def soundalarm(row, p):
 
     say("the time is " + alarmtime)
     say("time for " + description)
-    print(alarmtime, description)  
+    print(alarmtime, description)
 
-    print(" playing sound" )
-    playJingle(jingle,p)
-    
+    print(" playing sound")
+    play_jingle(jingle, p)
+
     print("playing recording")
-    playRecording(recording,p)
+    play_recording(recording, p)

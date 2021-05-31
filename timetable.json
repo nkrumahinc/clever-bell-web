@@ -1,16 +1,1 @@
-[
-    {
-        "description": "life",
-        "time": "10:17pm",
-        "days": "Everyday",
-        "jingle": "file_example_MP3_700KB.mp3",
-        "recording": "file_example_WAV_1MG.wav"
-    },
-    {
-        "description": "The Old G",
-        "time": "10:17pm",
-        "days": "Everyday",
-        "jingle": "file_example_OOG_1MG.ogg",
-        "recording": "file_example_WAV_1MG.wav"
-    }
-]
+[{"description":"breakfast time","time":"8:50am","days":"Weekends","jingle":"a.mp3","recording":"hayford-1.ogg"},{"description":"Testing","time":"5:32 pm","days":"Sunday","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3","recording":"hayford-1.ogg"},{"description":"create test","time":"5:55pm","days":"Everyday","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3","recording":"hayford-1.ogg"},{"description":"halo","time":"5:58pm","days":"Weekends","jingle":"a.mp3","recording":"hayford-1.ogg"},{"description":"club house","time":"7:35pm","days":"Weekdays","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3","recording":"hayford-1.ogg"},{"description":"Testing","time":"11:30pm","days":"Everyday","jingle":"a.mp3","recording":"hayford-1.ogg"},{"description":"desc","time":"11:33pm","days":"Everyday","jingle":"Upbeat and Inspiring Background Music For Videos and Presentations.mp3","recording":"hayford-1.ogg"}]
